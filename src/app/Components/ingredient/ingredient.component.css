@@ -1,0 +1,18 @@
+.ingredient-name{
+    padding: 10px;
+    white-space: nowrap
+}
+.button-space{
+    margin-left: 10px;
+  }
+  .container{
+    padding: 35px;
+}
+.button-container{
+    display: flex;
+}
+.img-size{
+    width: 350px;
+    height: 350px;
+    object-fit: contain;
+}

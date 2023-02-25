@@ -1,0 +1,19 @@
+<h3>Register</h3>
+<div class="account-add">
+    <form [formGroup]="accountInfoForm">
+        <mat-form-field appearance="fill">
+            <mat-label> New Account username: </mat-label>
+            <input matInput type="text" formControlName="username">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label> New Account Password: </mat-label>
+            <input matInput type="password" formControlName="password">
+        </mat-form-field>
+        <br>
+        <div>
+            <button (click)="addAccount()" mat-raised-button mat-raised-button color="black"> Submit </button>
+        </div>
+        <br>
+    </form>
+</div>

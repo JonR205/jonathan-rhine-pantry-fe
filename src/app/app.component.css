@@ -1,0 +1,6 @@
+.flexbox-parent{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+}

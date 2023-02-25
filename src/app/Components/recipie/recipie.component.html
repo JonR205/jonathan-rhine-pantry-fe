@@ -1,0 +1,69 @@
+<div *ngIf="!editRecipe" class="container">
+    <div class="recipe-name">
+        <img class="img-size" src="{{recipe?.imageURL}}">
+    </div>
+    <br>
+    <div class="recipe-name">
+        <b> Name: </b> {{recipe?.name}}
+    </div>
+    <br>
+    <b> Ingredient List</b>
+    <ol>
+        <li *ngFor="let ingredient of recipe?.ingredients">{{ingredient.name}}</li>
+    </ol>
+    <br>
+    <b>Steps</b>
+    <ol>
+        <li *ngFor="let step of recipe?.steps">{{step}}</li>
+    </ol>
+    <br>
+    <div class="recipe-name">
+        <b> Total Calories: </b> {{recipe?.calories}}
+    </div>
+    <section>
+        <div class="button-container">
+            <button class="button-space" (click)="setToEditMode()" mat-icon-button
+                color="black"><mat-icon>edit</mat-icon></button>
+            <button class="button-space" (click)="onDelete()" mat-icon-button color="black">
+                <mat-icon>delete</mat-icon></button>
+        </div>
+    </section>
+    <br>
+</div>
+<div *ngIf="editRecipe" class="admin-style">
+    <form [formGroup]="recipeInfoForm">
+        <mat-form-field appearance="fill">
+            <mat-label> Recipe Name: </mat-label>
+            <input matInput type="url" formControlName="name">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label> Recipe Steps: </mat-label>
+            <input matInput type="text" formControlName="steps">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label> Recipe ImageURL: </mat-label>
+            <input matInput type="text" formControlName="imageURL">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label> Calories: </mat-label>
+            <input matInput type="number" formControlName="calories">
+        </mat-form-field>
+        <br>
+        <ol>
+            <li *ngFor="let ingredient of recipe?.ingredients">{{ingredient.name}}</li>
+        </ol>
+        <app-ingredientform [onSubmit]="addIngredient"></app-ingredientform>
+
+        <section>
+            <div class="example-button-row">
+                <button class="button-space" (click)="updateRecipe()" mat-raised-button mat-raised-button color="black">
+                    Submit
+                </button>
+                <button (click)="editRecipe = false" mat-raised-button mat-raised-button color="warn"> Cancel </button>
+            </div>
+        </section>
+    </form>
+</div>

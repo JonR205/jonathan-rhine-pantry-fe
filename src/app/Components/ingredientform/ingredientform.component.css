@@ -1,0 +1,10 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .button-space{
+    margin-left: 10px;
+    padding-bottom: 10px;
+    word-wrap: break-word;
+  }

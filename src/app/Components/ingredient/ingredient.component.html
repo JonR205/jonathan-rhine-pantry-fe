@@ -1,0 +1,24 @@
+<div *ngIf="!editIngredient" class="container">
+    <img class="img-size" src="{{ingredient?.imageURL}}">
+    <div class="ingredient-name">
+        <b> Name: </b> {{ingredient?.name}}
+    </div>
+    <div class="ingredient-name">
+        <b> Weight: </b> {{ingredient?.weight}}
+    </div>
+    <br>
+    <section>
+        <div class="button-container">
+            <button class="button-space" (click)="setToEditMode()" mat-icon-button
+                color="black"><mat-icon>edit</mat-icon></button>
+            <button class="button-space" (click)="onDelete()" mat-icon-button color="black">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </section>
+    <br>
+</div>
+<div *ngIf="editIngredient" class="container">
+    <app-ingredientform [onSubmit]="updateIngredient" [ingredient]="ingredient"></app-ingredientform>
+    <button (click)="editIngredient = false" mat-raised-button color="warn"> Cancel </button>
+</div>

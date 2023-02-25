@@ -1,0 +1,47 @@
+<div class="container">
+    <app-recipie *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipie>
+
+    <body>
+        <section>
+            <div class="button">
+                <button (click)="addARecipe = true" mat-fab extended color="primary"
+                    aria-label="Example icon button with a plus one icon">Add Recipes
+                </button>
+            </div>
+        </section>
+        <div *ngIf="addARecipe" class="recipe-add">
+            <h3>Enter Recipe</h3>
+            <form [formGroup]="recipeInfoForm">
+                <mat-form-field appearance="fill">
+                    <mat-label> New Recipe Name: </mat-label>
+                    <input matInput type="text" formControlName="name">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label for="steps"> New Recipe Steps: </mat-label>
+                    <input matInput type="text" formControlName="steps">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label for="imageURL"> New Recipe Image URL: </mat-label>
+                    <input matInput type="url" formControlName="imageURL">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label for="calories"> Total Calories: </mat-label>
+                    <input matInput type="number" formControlName="calories">
+                </mat-form-field>
+                <br>
+                <ol>
+                    <li *ngFor="let ingredient of ingredients">{{ingredient.name}}</li>
+                </ol>
+                <app-ingredientform [onSubmit]="addIngredient"></app-ingredientform>
+                <br>
+                <div>
+                    <button (click)="addRecipe()" mat-raised-button mat-raised-button color="black"> Submit </button>
+                    <button (click)="addARecipe = false" mat-raised-button color="warn"> Cancel </button>
+                </div>
+            </form>
+        </div>
+    </body>
+</div>

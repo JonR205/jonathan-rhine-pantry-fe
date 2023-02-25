@@ -1,0 +1,18 @@
+<div class="container">
+        <app-ingredient *ngFor="let ingredient of ingredients" [ingredient]="ingredient"></app-ingredient>
+
+    <body>
+        <section>
+            <div class="button">
+                <button (click)="addAnIngredient = true" mat-fab extended color="primary"
+                    aria-label="Example icon button with a plus one icon">Add Ingredients
+                </button>
+            </div>
+        </section>
+        <div *ngIf="addAnIngredient" class="ingredient-add">
+            <app-ingredientform [onSubmit]="addIngredient"></app-ingredientform>
+            <button (click)="addAnIngredient = false" mat-raised-button mat-raised-button color="warn"> Cancel </button>
+
+        </div>
+    </body>
+</div>
